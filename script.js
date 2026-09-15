@@ -13,7 +13,7 @@
    ============================================================ */
 const gallery = [
   {
-    image: "images/photo1.jpg",
+    image: "images1.jpeg",
     title: "Her Smile",
     date: "September 2026",
     description: "A moment I never want to forget.",
