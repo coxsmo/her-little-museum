@@ -20,7 +20,7 @@ const gallery = [
   },
   {
     image: "image2.jpeg",
-    title: "A Beautiful Moment",
+    title: "My Beautiful Angel",
     date: "September 2026",
     description: "Proof that the ordinary can be extraordinary.",
   },
