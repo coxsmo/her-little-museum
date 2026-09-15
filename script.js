@@ -19,13 +19,13 @@ const gallery = [
     description: "A moment I never want to forget.",
   },
   {
-    image: "images/photo2.jpg",
-    title: "A Beautiful Moment",
+    image: "image2.jpeg",
+    title: "My Beautiful Angel",
     date: "September 2026",
     description: "Proof that the ordinary can be extraordinary.",
   },
   {
-    image: "images/photo3.jpg",
+    image: "image3.jpeg",
     title: "The Light She Carries",
     date: "A day worth keeping",
     description: "Some people make every room feel warmer.",
