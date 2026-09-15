@@ -4,7 +4,7 @@
 // Replace any image path with your own photo when ready.
 // =====================================
 const gallery = [
-  { image: "images/01-her-smile.svg", title: "Her Smile", date: "September 2026", description: "A moment I never want to forget.", color: "linear-gradient(145deg,#f7c3d2,#ad687f)" },
+  { image: "images1.jpeg", title: "Her Smile", date: "September 2026", description: "A moment I never want to forget.", color: "linear-gradient(145deg,#f7c3d2,#ad687f)" },
   { image: "images/02-the-way-she-laughs.svg", title: "The Way She Laughs", date: "A favorite afternoon", description: "The sound that makes every room warmer.", color: "linear-gradient(145deg,#e9d2b4,#aa7180)" },
   { image: "images/03-softly-herself.svg", title: "Softly, Herself", date: "Collected with love", description: "Proof that the quiet moments are the most beautiful.", color: "linear-gradient(145deg,#c0d4cf,#7c9b93)" },
   ...[
