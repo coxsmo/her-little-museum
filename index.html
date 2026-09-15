@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#33252B" />
+  <meta name="description" content="A private museum of moments, memories, and little pieces of her." />
+  <title>The Story of Her</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Reenie+Beanie&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="petal-field" id="petal-field" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       OPENING EXPERIENCE
+       ========================================================= -->
+  <section class="opening-stage" id="opening-stage" aria-label="Opening cover">
+    <div class="moon-orb" aria-hidden="true"></div>
+    <div class="opening-copy">
+      <p class="eyebrow">A private collection · volume 01</p>
+      <p class="opening-hint">A little museum made for one person</p>
+    </div>
+
+    <div class="book-wrap">
+      <div class="book" id="book" aria-label="Closed book">
+        <div class="book-page book-page-back"></div>
+        <div class="book-cover">
+          <div class="cover-topline"><span>THE</span><span>ARCHIVE</span></div>
+          <div class="cover-rule"></div>
+          <div class="lily lily-cover" aria-hidden="true">
+            <span class="lily-petal petal-a"></span><span class="lily-petal petal-b"></span><span class="lily-petal petal-c"></span><span class="lily-petal petal-d"></span><span class="lily-petal petal-e"></span>
+            <span class="lily-stem"></span><span class="lily-center"></span>
+          </div>
+          <h1>The Story<br /><em>of Her</em></h1>
+          <p>A collection of moments, memories,<br />and little pieces of her.</p>
+          <div class="cover-footer"><span>EST. 2026</span><span>♡</span><span>WITH LOVE</span></div>
+        </div>
+      </div>
+      <button class="primary-button opening-button" id="open-book" type="button">
+        <span>Open the book</span><span class="button-arrow">↗</span>
+      </button>
+      <p class="touch-note">Tap to begin · sound not required</p>
+    </div>
+    <div class="opening-footer"><span>For the girl who makes ordinary days glow.</span><span>Scroll is waiting inside</span></div>
+  </section>
+
+  <!-- =========================================================
+       THE MUSEUM
+       ========================================================= -->
+  <div class="museum-app is-hidden" id="museum-app">
+    <header class="site-header" id="site-header">
+      <a class="wordmark" href="#contents" aria-label="Back to contents"><span class="wordmark-mark">✳</span><span>The Story of Her</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="chapter-menu"><span>Menu</span><span class="menu-lines"><i></i><i></i></span></button>
+      <nav class="chapter-menu" id="chapter-menu" aria-label="Museum chapters">
+        <a href="#gallery" data-target="gallery"><span>I</span> The Gallery</a>
+        <a href="#memories" data-target="memories"><span>II</span> Our Memories</a>
+        <a href="#little-things" data-target="little-things"><span>III</span> Little Things</a>
+        <a href="#archive" data-target="archive"><span>IV</span> Memory Archive</a>
+        <a href="#letter" data-target="letter"><span>V</span> The Letter</a>
+        <a href="#garden" data-target="garden"><span>VI</span> The Lily Garden</a>
+        <a href="#secret" data-target="secret"><span>VII</span> Secret Room</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- TABLE OF CONTENTS / LANDING -->
+      <section class="contents-section section-pad" id="contents">
+        <div class="contents-grid">
+          <div class="contents-intro reveal">
+            <p class="eyebrow rose-ink">The private museum of</p>
+            <h2>A girl who turns<br /><em>life into art.</em></h2>
+            <p class="intro-lede">Every room holds something I never want to forget: the way you laugh, the small things you do, and the light you carry into a room.</p>
+            <div class="intro-signature">— someone who notices</div>
+          </div>
+          <div class="contents-side reveal reveal-delay-1">
+            <div class="catalog-card">
+              <div class="catalog-card-top"><span>CATALOGUE</span><span>01—07</span></div>
+              <p>Seven rooms. Infinite little reasons.</p>
+              <div class="catalog-line"></div>
+              <a class="text-link" href="#gallery">Begin the tour <span>↗</span></a>
+            </div>
+            <div class="mini-note"><span class="mini-note-pin">✳</span><span>Take your time.<br />There is nowhere else to be.</span></div>
+          </div>
+        </div>
+
+        <div class="chapter-list" aria-label="Chapters">
+          <a class="chapter-row reveal" href="#gallery"><span class="chapter-number">I</span><span class="chapter-name">The Gallery</span><span class="chapter-detail">photographs as art</span><span class="chapter-arrow">↗</span></a>
+          <a class="chapter-row reveal" href="#memories"><span class="chapter-number">II</span><span class="chapter-name">Our Memories</span><span class="chapter-detail">a scrapbook of us</span><span class="chapter-arrow">↗</span></a>
+          <a class="chapter-row reveal" href="#little-things"><span class="chapter-number">III</span><span class="chapter-name">Little Things</span><span class="chapter-detail">the reasons I stay</span><span class="chapter-arrow">↗</span></a>
+          <a class="chapter-row reveal" href="#archive"><span class="chapter-number">IV</span><span class="chapter-name">Memory Archive</span><span class="chapter-detail">a timeline in bloom</span><span class="chapter-arrow">↗</span></a>
+          <a class="chapter-row reveal" href="#letter"><span class="chapter-number">V</span><span class="chapter-name">The Letter</span><span class="chapter-detail">words for you</span><span class="chapter-arrow">↗</span></a>
+          <a class="chapter-row reveal" href="#garden"><span class="chapter-number">VI</span><span class="chapter-name">The Lily Garden</span><span class="chapter-detail">tap a flower</span><span class="chapter-arrow">↗</span></a>
+          <a class="chapter-row reveal" href="#secret"><span class="chapter-number">VII</span><span class="chapter-name">Secret Room</span><span class="chapter-detail">for the curious</span><span class="chapter-arrow">↗</span></a>
+        </div>
+      </section>
+
+      <!-- I — THE GALLERY -->
+      <section class="gallery-section section-pad" id="gallery">
+        <div class="section-heading split-heading reveal">
+          <div><p class="eyebrow">Chapter I · The Gallery</p><h2>Moments worth<br /><em>framing.</em></h2></div>
+          <p class="section-blurb">Not a feed. Not a scroll. A quiet room where each image gets to be looked at.</p>
+        </div>
+        <div class="museum-grid" id="gallery-grid" aria-live="polite"></div>
+        <div class="gallery-footnote"><span>EXHIBITS 001—003</span><span>Tap an artwork to enter full view</span></div>
+      </section>
+
+      <!-- II — MEMORY BOOK -->
+      <section class="memories-section section-pad" id="memories">
+        <div class="section-heading reveal"><p class="eyebrow">Chapter II · Our Memories</p><h2>A scrapbook<br /><em>of us.</em></h2><p class="section-blurb">Some memories are too soft to file away. Keep these close.</p></div>
+        <div class="scrapbook" id="scrapbook">
+          <div class="scrap-tape tape-one"></div><div class="scrap-tape tape-two"></div>
+          <div class="scrapbook-stamp">MEMORY<br />BOOK<br /><span>♡</span></div>
+          <div class="polaroid polaroid-one reveal"><div class="polaroid-image art-image art-image-one" data-image="images/photo1.jpg"><img src="images/photo1.jpg" alt="A placeholder for your first memory" /></div><p>the way you<br />make a day brighter</p><span class="polaroid-date">09 · 2026</span></div>
+          <div class="paper-note note-one reveal"><span class="note-pin">✳</span><p>For every ordinary<br />day you make<br /><em>extraordinary.</em></p><span class="note-sign">— me</span></div>
+          <div class="polaroid polaroid-two reveal"><div class="polaroid-image art-image art-image-two"><img src="images/photo2.jpg" alt="A placeholder for your second memory" /></div><p>still my favourite<br />place to be</p><span class="polaroid-date">A memory to keep</span></div>
+          <div class="paper-note note-two reveal"><p><span class="tiny-lily">✿</span> Keep this page<br />for a rainy day.</p></div>
+          <div class="scrap-caption">A few pieces<br />of a bigger story.</div>
+        </div>
+      </section>
+
+      <!-- III — LITTLE THINGS -->
+      <section class="little-section section-pad" id="little-things">
+        <div class="section-heading split-heading reveal"><div><p class="eyebrow">Chapter III · Little Things</p><h2>The reasons I<br /><em>love you.</em></h2></div><p class="section-blurb">Tap a card. There is more underneath the obvious.</p></div>
+        <div class="love-cards">
+          <button class="love-card reveal" type="button"><span class="love-card-no">01</span><span class="love-card-title">Your smile</span><span class="love-card-plus">+</span><span class="love-card-message">It arrives before you do, and somehow the whole room knows.</span></button>
+          <button class="love-card reveal" type="button"><span class="love-card-no">02</span><span class="love-card-title">Your laugh</span><span class="love-card-plus">+</span><span class="love-card-message">The real one. The one you try to hide. I could find it in any crowd.</span></button>
+          <button class="love-card reveal" type="button"><span class="love-card-no">03</span><span class="love-card-title">Your kindness</span><span class="love-card-plus">+</span><span class="love-card-message">You leave a little more gentleness everywhere you go.</span></button>
+          <button class="love-card reveal" type="button"><span class="love-card-no">04</span><span class="love-card-title">Your little habits</span><span class="love-card-plus">+</span><span class="love-card-message">The tiny rituals that make a life feel like ours.</span></button>
+          <button class="love-card reveal" type="button"><span class="love-card-no">05</span><span class="love-card-title">The way you talk</span><span class="love-card-plus">+</span><span class="love-card-message">Every story sounds better because it is yours.</span></button>
+          <button class="love-card reveal" type="button"><span class="love-card-no">06</span><span class="love-card-title">Our memories</span><span class="love-card-plus">+</span><span class="love-card-message">Proof that the best parts of my life have your fingerprints on them.</span></button>
+        </div>
+      </section>
+
+      <!-- IV — TIMELINE -->
+      <section class="archive-section section-pad" id="archive">
+        <div class="section-heading reveal"><p class="eyebrow">Chapter IV · Memory Archive</p><h2>A timeline<br /><em>in bloom.</em></h2></div>
+        <div class="timeline">
+          <div class="timeline-entry reveal"><span class="timeline-marker">01</span><div class="timeline-copy"><span class="timeline-date">The beginning</span><h3>Before I knew.</h3><p>There was a before, and then there was the moment the world quietly became more interesting.</p></div></div>
+          <div class="timeline-entry reveal"><span class="timeline-marker">02</span><div class="timeline-copy"><span class="timeline-date">First memory</span><h3>A little spark.</h3><p>The kind of moment you replay later and realize it mattered more than you knew.</p></div></div>
+          <div class="timeline-entry reveal"><span class="timeline-marker">03</span><div class="timeline-copy"><span class="timeline-date">More moments</span><h3>Somewhere between.</h3><p>All the small days began arranging themselves into something I never want to lose.</p></div></div>
+          <div class="timeline-entry timeline-entry-final reveal"><span class="timeline-marker">04</span><div class="timeline-copy"><span class="timeline-date">Today</span><h3>Still choosing you.</h3><p>And if I get a say in it, every tomorrow gets to be another page.</p></div></div>
+        </div>
+      </section>
+
+      <!-- V — LETTER -->
+      <section class="letter-section section-pad" id="letter">
+        <div class="section-heading reveal"><p class="eyebrow">Chapter V · The Letter</p><h2>Words I wanted<br /><em>you to keep.</em></h2></div>
+        <div class="letter-wrap reveal">
+          <div class="letter-card" id="letter-card">
+            <div class="letter-seal">✳</div>
+            <div class="letter-topline"><span>PRIVATE CORRESPONDENCE</span><span>15 · 09 · 2026</span></div>
+            <button class="letter-trigger" id="open-letter" type="button"><span class="letter-trigger-kicker">Open when you need a little light</span><strong>A letter for you</strong><span class="letter-trigger-arrow">↗</span></button>
+            <div class="letter-body" id="letter-body">
+              <!-- Change the letter text below directly in index.html. -->
+              <p class="letter-greeting">My dearest you,</p>
+              <p>I hope you know how much of the world becomes beautiful simply because you are in it. You make a home out of the smallest moments, and I am endlessly lucky to get to notice.</p>
+              <p>Thank you for being soft without being small, bright without asking to be seen, and entirely yourself.</p>
+              <p class="letter-closing">I would choose you in every chapter.<br /><span>Always, me.</span></p>
+            </div>
+            <div class="letter-flower-mark">✿</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VI — LILY GARDEN -->
+      <section class="garden-section section-pad" id="garden">
+        <div class="garden-sky-glow"></div>
+        <div class="section-heading garden-heading reveal"><p class="eyebrow">Chapter VI · The Lily Garden</p><h2>Where little<br /><em>secrets bloom.</em></h2><p class="section-blurb">Tap a lily. Every flower is keeping something for you.</p></div>
+        <div class="garden-bed" id="garden-bed">
+          <span class="firefly firefly-one"></span><span class="firefly firefly-two"></span><span class="firefly firefly-three"></span><span class="firefly firefly-four"></span>
+          <button class="garden-lily garden-lily-one" type="button" data-message="You make the quiet moments feel like a celebration."><span class="garden-stem"></span><span class="garden-flower"><i></i><i></i><i></i><i></i><b></b></span></button>
+          <button class="garden-lily garden-lily-two" type="button" data-message="Somehow, you are both my favourite person and my favourite place."><span class="garden-stem"></span><span class="garden-flower"><i></i><i></i><i></i><i></i><b></b></span></button>
+          <button class="garden-lily garden-lily-three" type="button" data-message="If I could bottle one feeling, it would be the way you look at me."><span class="garden-stem"></span><span class="garden-flower"><i></i><i></i><i></i><i></i><b></b></span></button>
+          <button class="garden-lily garden-lily-four" type="button" data-message="You are the softest part of every future I imagine."><span class="garden-stem"></span><span class="garden-flower"><i></i><i></i><i></i><i></i><b></b></span></button>
+          <div class="garden-ground"></div>
+          <div class="garden-message" id="garden-message" role="status"><span>✳</span><p>Choose a flower<br />to read its secret.</p></div>
+        </div>
+        <button class="secret-lily" id="secret-trigger" type="button" aria-label="A tiny hidden lily"><span class="secret-lily-flower">✿</span></button>
+      </section>
+
+      <!-- VII — SECRET ROOM -->
+      <section class="secret-section section-pad" id="secret">
+        <div class="secret-room reveal" id="secret-room">
+          <p class="eyebrow">Chapter VII · Secret Room</p>
+          <div class="secret-closed"><span class="secret-door-mark">✳</span><h2>For the<br /><em>curious one.</em></h2><p>There is a small room hidden somewhere in this museum. You might have already found the door.</p></div>
+          <div class="secret-open"><span class="secret-door-mark bloom-mark">✿</span><p class="eyebrow">You found the secret room</p><h2>A secret, just<br /><em>for you.</em></h2><p>You are the plot twist I would choose again and again. Keep this little room somewhere safe: no one else gets to see it.</p><div class="secret-blooms"><span>✿</span><span>✿</span><span>✿</span></div></div>
+        </div>
+      </section>
+
+      <!-- FINAL PAGE -->
+      <section class="final-section section-pad" id="final-page">
+        <div class="final-bookmark">END OF VOLUME 01</div>
+        <div class="final-copy reveal"><p class="eyebrow">One last thing</p><h2>Every museum has<br />a masterpiece.</h2><div class="final-pause"></div><h3>Mine is <em>you.</em></h3><div class="final-lily" aria-hidden="true"><span>✿</span></div><p class="final-subtitle">Thank you for being my favourite story.</p></div>
+        <button class="ghost-button close-book" id="close-book" type="button">Close the book <span>↙</span></button>
+      </section>
+    </main>
+    <footer class="site-footer"><span>The Story of Her · a private collection</span><span>Made with attention</span></footer>
+  </div>
+
+  <!-- FULLSCREEN ARTWORK VIEWER -->
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title" aria-hidden="true">
+    <div class="viewer-backdrop" data-close-viewer></div>
+    <div class="viewer-panel">
+      <button class="viewer-close" id="viewer-close" type="button" aria-label="Close artwork viewer">×</button>
+      <div class="viewer-media"><img id="viewer-image" src="" alt="" /><span class="viewer-placeholder">Your photo will live here</span></div>
+      <div class="viewer-info"><span class="eyebrow" id="viewer-exhibit">EXHIBIT 001</span><h2 id="viewer-title">Her Smile</h2><p id="viewer-date">Photograph · September 2026</p><p id="viewer-description">A moment worth keeping.</p><div class="viewer-nav"><button id="viewer-prev" type="button">← Previous</button><span id="viewer-count">01 / 03</span><button id="viewer-next" type="button">Next →</button></div></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
