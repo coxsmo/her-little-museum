@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff8fa" />
+  <title>The Story of Her</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div id="petalLayer" class="petal-layer" aria-hidden="true"></div>
+  <div id="fireflyLayer" class="firefly-layer" aria-hidden="true"></div>
+
+  <main id="site" class="site-shell">
+    <section id="opening" class="opening-screen screen active-screen" aria-label="Opening book">
+      <div class="opening-copy"><span class="eyebrow">A private collection</span><p>For the girl who makes ordinary moments feel like art.</p></div>
+      <div class="book book-closed" id="bookIntro">
+        <div class="book-cover book-cover-front">
+          <span class="cover-kicker">Volume I · 2026</span>
+          <div class="lily lily-cover" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b></div>
+          <h1>The Story<br />of Her</h1>
+          <p>A collection of moments, memories,<br />and little pieces of her.</p>
+          <span class="cover-rule"></span>
+          <span class="cover-name">With love, always</span>
+        </div>
+        <div class="book-page book-page-inner"></div>
+      </div>
+      <button id="openBook" class="button button-dark">Open the book <span>→</span></button>
+      <span class="scroll-hint">Tap to begin <span class="hint-line"></span></span>
+    </section>
+
+    <section id="museum" class="museum-screen screen" aria-label="Her little museum">
+      <header class="site-header">
+        <button class="brand-mark" data-go="contents" aria-label="Return to contents"><span class="mini-lily">✦</span> HER LITTLE MUSEUM</button>
+        <button id="menuToggle" class="menu-button" aria-label="Open chapter menu"><span></span><span></span></button>
+      </header>
+      <div class="content-wrap intro-page" data-page="welcome">
+        <span class="page-number">01 / 07</span>
+        <div class="section-ornament"><span></span><div class="lily lily-small" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b></div><span></span></div>
+        <p class="eyebrow">Welcome, darling</p>
+        <h2>Welcome to her<br /><em>little museum.</em></h2>
+        <blockquote>“Every photograph holds a moment.<br />Every moment holds a memory.<br />And every memory leads back to her.”</blockquote>
+        <p class="intro-note">Take your time. Wander slowly. This is a place made from all the details that make you, you.</p>
+        <button class="button button-dark" data-go="contents">Begin the exhibition <span>→</span></button>
+      </div>
+      <footer class="page-footer"><span>est. in a thousand little moments</span><span class="footer-lily">✦</span><span>for her, forever</span></footer>
+    </section>
+
+    <section id="contents" class="museum-screen screen" aria-label="Table of contents">
+      <header class="site-header"><button class="brand-mark" data-go="welcome"><span class="mini-lily">✦</span> HER LITTLE MUSEUM</button><button class="menu-button" id="menuToggleContents" aria-label="Close chapter menu"><span></span><span></span></button></header>
+      <div class="content-wrap contents-page"><span class="page-number">CONTENTS</span><p class="eyebrow">A table of contents</p><h2>Seven chapters<br /><em>of her.</em></h2>
+        <nav class="chapter-list" aria-label="Museum chapters">
+          <button data-go="gallery"><span>I</span><strong>The Gallery</strong><small>portraits of a masterpiece</small><b>↗</b></button>
+          <button data-go="memories"><span>II</span><strong>Our Memories</strong><small>the moments between moments</small><b>↗</b></button>
+          <button data-go="things"><span>III</span><strong>Little Things</strong><small>the details I adore</small><b>↗</b></button>
+          <button data-go="archive"><span>IV</span><strong>Memory Archive</strong><small>a timeline of us</small><b>↗</b></button>
+          <button data-go="letter"><span>V</span><strong>The Letter</strong><small>words I want you to keep</small><b>↗</b></button>
+          <button data-go="garden"><span>VI</span><strong>The Lily Garden</strong><small>find the hidden bloom</small><b>↗</b></button>
+          <button data-go="finale"><span>VII</span><strong>Secret Room</strong><small>for your eyes only</small><b>↗</b></button>
+        </nav>
+      </div>
+    </section>
+
+    <section id="gallery" class="museum-screen screen" aria-label="The gallery"><header class="site-header"><button class="back-button" data-go="contents">← <span>Contents</span></button><span class="header-chapter">Chapter I</span></header><div class="content-wrap gallery-page"><span class="page-number">01 / 03</span><p class="eyebrow">Chapter I · The gallery</p><h2>Portraits of a<br /><em>masterpiece.</em></h2><p class="section-lead">A small collection of my favorite views.</p><div id="galleryGrid" class="gallery-grid"></div></div></section>
+
+    <section id="memories" class="museum-screen screen" aria-label="Our memories"><header class="site-header"><button class="back-button" data-go="contents">← <span>Contents</span></button><span class="header-chapter">Chapter II</span></header><div class="content-wrap scrapbook-page"><span class="page-number">02 / 03</span><p class="eyebrow">Chapter II · Our memories</p><h2>The moments<br /><em>between moments.</em></h2><div id="scrapbook" class="scrapbook"></div></div></section>
+
+    <section id="things" class="museum-screen screen" aria-label="Little things"><header class="site-header"><button class="back-button" data-go="contents">← <span>Contents</span></button><span class="header-chapter">Chapter III</span></header><div class="content-wrap things-page"><span class="page-number">03 / 03</span><p class="eyebrow">Chapter III · Little things</p><h2>Reasons I<br /><em>love you.</em></h2><div id="loveCards" class="love-cards"></div></div></section>
+
+    <section id="archive" class="museum-screen screen" aria-label="Memory archive"><header class="site-header"><button class="back-button" data-go="contents">← <span>Contents</span></button><span class="header-chapter">Chapter IV</span></header><div class="content-wrap archive-page"><span class="page-number">04 / 07</span><p class="eyebrow">Chapter IV · Memory archive</p><h2>A timeline<br /><em>of us.</em></h2><div id="timeline" class="timeline"></div></div></section>
+
+    <section id="letter" class="museum-screen screen" aria-label="Love letter"><header class="site-header"><button class="back-button" data-go="contents">← <span>Contents</span></button><span class="header-chapter">Chapter V</span></header><div class="content-wrap letter-page"><span class="page-number">05 / 07</span><p class="eyebrow">Chapter V · The letter</p><div id="letterPaper" class="letter-paper"><div class="letter-seal">✦</div><h2>A letter<br /><em>for you.</em></h2><!-- =====================================
+     EDIT YOUR LOVE LETTER HERE
+     ===================================== --><div class="letter-body"><p>My love,</p><p>There are so many things I could say about you, but the truest ones are often the simplest: you make my life softer, brighter, and more beautiful just by being in it.</p><p>Thank you for every laugh, every little adventure, every quiet moment, and every version of yourself you let me know. I choose you in the big moments, and especially in the small ones.</p><p>Always yours,<br /><span>♡</span></p></div><button id="unfoldLetter" class="button button-outline">Unfold the letter</button></div></div></section>
+
+    <section id="garden" class="museum-screen garden-screen screen" aria-label="The lily garden"><header class="site-header"><button class="back-button" data-go="contents">← <span>Contents</span></button><span class="header-chapter">Chapter VI</span></header><div class="content-wrap garden-page"><span class="page-number">06 / 07</span><p class="eyebrow">Chapter VI · The lily garden</p><h2>Meet me in the<br /><em>moonlit garden.</em></h2><p class="garden-instruction">Tap a lily to discover a little secret.</p><div id="lilyGarden" class="lily-garden"><div class="moon"></div></div><div id="gardenMessage" class="garden-message" role="status"></div><button class="button button-dark" data-go="finale">Continue <span>→</span></button></div></section>
+
+    <section id="finale" class="museum-screen finale-screen screen" aria-label="Final page"><div class="finale-book"><div class="finale-lily lily" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b></div><p class="eyebrow">The final page</p><h2>Every museum has<br />a masterpiece.</h2><p id="finalLine" class="final-line">Mine is <em>you.</em></p><span class="final-rule"></span><button class="button button-outline" data-go="opening">Read it again <span>↗</span></button></div><button class="secret-trigger" id="secretTrigger" aria-label="Secret lily">✦</button><div id="secretRoom" class="secret-room" aria-hidden="true"><div><span class="eyebrow">You found the secret room</span><h2>My favorite place<br /><em>is beside you.</em></h2><button class="button button-dark" id="closeSecret">Keep this secret</button></div></div></section>
+  </main>
+
+  <div id="viewer" class="viewer" aria-hidden="true"><button id="closeViewer" class="viewer-close" aria-label="Close photo viewer">×</button><div class="viewer-content"><div id="viewerImage" class="viewer-image"></div><div class="viewer-meta"><span id="viewerExhibit" class="eyebrow"></span><h2 id="viewerTitle"></h2><p id="viewerDate"></p><p id="viewerDescription"></p><div class="viewer-controls"><button id="prevPhoto" aria-label="Previous photo">←</button><span id="viewerCount"></span><button id="nextPhoto" aria-label="Next photo">→</button></div></div></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
