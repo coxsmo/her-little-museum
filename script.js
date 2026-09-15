@@ -15,7 +15,7 @@ const gallery = [
   {
     image: "image1.jpeg",
     title: "Her Smile",
-    date: "September 2026",
+    date: "March 2026",
     description: "A moment I never want to forget.",
   },
   {
