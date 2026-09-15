@@ -4,7 +4,7 @@
 // If image is blank, the museum gradient artwork remains visible.
 // =====================================
 const gallery = [
-  { image: "", title: "Her Smile", date: "September 2026", description: "A moment I never want to forget.", color: "linear-gradient(145deg,#f7c3d2,#ad687f)" },
+  { image: "image1.jpeg", title: "Her Smile", date: "September 2026", description: "A moment I never want to forget.", color: "linear-gradient(145deg,#f7c3d2,#ad687f)" },
   { image: "", title: "The Way She Laughs", date: "A favorite afternoon", description: "The sound that makes every room warmer.", color: "linear-gradient(145deg,#e9d2b4,#aa7180)" },
   { image: "", title: "Softly, Herself", date: "Collected with love", description: "Proof that the quiet moments are the most beautiful.", color: "linear-gradient(145deg,#c0d4cf,#7c9b93)" }
 ];
