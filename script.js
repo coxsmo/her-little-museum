@@ -13,19 +13,19 @@
    ============================================================ */
 const gallery = [
   {
-    image: "image1.jpeg",
+    image: "images/photo1.jpg",
     title: "Her Smile",
-    date: "March 2026",
+    date: "September 2026",
     description: "A moment I never want to forget.",
   },
   {
-    image: "image2.jpeg",
-    title: "My Beautiful Angel",
+    image: "images/photo2.jpg",
+    title: "A Beautiful Moment",
     date: "September 2026",
     description: "Proof that the ordinary can be extraordinary.",
   },
   {
-    image: "image3.jpeg",
+    image: "images/photo3.jpg",
     title: "The Light She Carries",
     date: "A day worth keeping",
     description: "Some people make every room feel warmer.",
@@ -100,19 +100,24 @@ function createPetals(amount = 24) {
 
 function openMuseum() {
   book.classList.add("is-opening");
+  openingStage.classList.add("is-leaving");
   createPetals(32);
   window.setTimeout(() => {
     openingStage.classList.add("is-hidden");
     museumApp.classList.remove("is-hidden");
+    museumApp.classList.add("is-entering");
     window.scrollTo({ top: 0, behavior: "instant" });
     observeReveals();
+    window.requestAnimationFrame(() => museumApp.classList.remove("is-entering"));
   }, 1250);
 }
 
 function closeMuseum() {
   museumApp.classList.add("is-hidden");
   openingStage.classList.remove("is-hidden");
+  openingStage.classList.remove("is-leaving");
   book.classList.remove("is-opening");
+  book.setAttribute("aria-label", "Closed book");
   window.scrollTo({ top: 0, behavior: "instant" });
   createPetals(20);
 }
