@@ -105,9 +105,11 @@ function openMuseum() {
   openingInProgress = true;
   book.setAttribute("aria-label", "Opening book");
   $("#open-book")?.setAttribute("disabled", "true");
+  openingStage.classList.add("is-book-opening");
   book.classList.add("is-opening");
   createPetals(32);
   window.setTimeout(() => {
+    book.classList.add("is-page-open");
     bookLife?.classList.add("is-growing");
   }, 1750);
   window.setTimeout(() => {
@@ -130,6 +132,7 @@ function closeMuseum() {
     museumApp.classList.remove("is-returning");
     openingStage.classList.remove("is-hidden");
     openingStage.classList.remove("is-leaving");
+    openingStage.classList.remove("is-book-opening");
     book.classList.add("is-opening");
     bookLife?.classList.remove("is-growing");
     bookLife?.classList.add("is-reversing");
@@ -137,6 +140,7 @@ function closeMuseum() {
       bookLife?.classList.remove("is-reversing");
       book.classList.remove("is-opening");
       book.classList.remove("is-pages-open");
+      book.classList.remove("is-page-open");
       book.classList.remove("is-zooming");
       book.setAttribute("aria-label", "Closed book");
       $("#open-book")?.removeAttribute("disabled");
