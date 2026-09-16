@@ -135,4 +135,12 @@ img { display: block; max-width: 100%; }
 .museum-app { transition: opacity .8s var(--ease-out), transform .95s var(--ease-out); }
 @media (max-width: 600px) { .book, .book.is-opening, .book.is-pages-open { width: min(82vw, 340px); max-width: 340px; }.book.is-pages-open.is-zooming { transform: translateY(-2%) scale(1.12); }.book-wrap { max-width: 100%; }.garden-lily-svg { transform: scale(.86); transform-origin: bottom center; } }
 @media (max-width: 360px) { .book, .book.is-opening, .book.is-pages-open { width: 78vw; max-width: 300px; } }
+
+/* Final book behavior: only the front cover moves. */
+.book, .book.is-opening, .book.is-pages-open, .book.is-zooming, .book.is-pages-open.is-zooming { width: min(80vw, 340px); aspect-ratio: .7; transform: none; }
+.book-spread { opacity: 1; transform: none; transition: none; }
+.book.is-opening .book-spread, .book.is-pages-open .book-spread { opacity: 1; transform: none; }
+.book .book-cover, .book.is-opening .book-cover, .book.is-pages-open .book-cover { left: 0; right: 0; transform-origin: left center; transform: rotateY(0deg); transition: transform 1.65s var(--ease-in-out); z-index: 3; }
+.book.is-opening .book-cover { transform: rotateY(-178deg); }
+@media (max-width: 600px) { .book, .book.is-opening, .book.is-pages-open, .book.is-zooming { width: 80vw; max-width: 320px; transform: none; }.book.is-opening .book-cover { transform: rotateY(-178deg); } }
 @media (prefers-reduced-motion: reduce) { .opening-stage, .museum-app { transition: none; }.opening-stage.is-leaving { opacity: 0; transform: none; }.book.is-opening .book-cover { transform: none; opacity: 0; } .book.is-zooming { transform: none; }.book-spread { transform: none; } .museum-app.is-entering { opacity: 1; transform: none; } }

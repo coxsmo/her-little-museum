@@ -107,20 +107,14 @@ function openMuseum() {
   book.classList.add("is-opening");
   createPetals(32);
   window.setTimeout(() => {
-    book.classList.add("is-pages-open");
-  }, 1800);
-  window.setTimeout(() => {
-    book.classList.add("is-zooming");
     openingStage.classList.add("is-leaving");
-  }, 2350);
+  }, 1750);
   window.setTimeout(() => {
     openingStage.classList.add("is-hidden");
     museumApp.classList.remove("is-hidden");
-    museumApp.classList.add("is-entering");
     window.scrollTo({ top: 0, behavior: "instant" });
     observeReveals();
-    window.requestAnimationFrame(() => museumApp.classList.remove("is-entering"));
-  }, 4100);
+  }, 2250);
 }
 
 function closeMuseum() {
@@ -129,6 +123,7 @@ function closeMuseum() {
   openingStage.classList.remove("is-leaving");
   book.classList.remove("is-opening");
   book.classList.remove("is-pages-open");
+  book.classList.remove("is-zooming");
   book.classList.remove("is-zooming");
   book.setAttribute("aria-label", "Closed book");
   $("#open-book")?.removeAttribute("disabled");
