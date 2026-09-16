@@ -140,6 +140,10 @@ img { display: block; max-width: 100%; }
 .book, .book.is-opening, .book.is-pages-open, .book.is-zooming, .book.is-pages-open.is-zooming { width: min(80vw, 340px); aspect-ratio: .7; transform: none; }
 .book-spread { opacity: 1; transform: none; transition: none; }
 .book.is-opening .book-spread, .book.is-pages-open .book-spread { opacity: 1; transform: none; }
+.book-spread { display: block; }
+.book-spread .spread-right { display: none; }
+.book-spread .spread-left { width: 100%; min-height: 100%; border-radius: 7px; text-align: left; box-shadow: inset -12px 0 18px rgba(112,57,76,.08); }
+.book-spread .spread-left .spread-page-no { right: 10%; left: auto; }
 .book .book-cover, .book.is-opening .book-cover, .book.is-pages-open .book-cover { left: 0; right: 0; transform-origin: left center; transform: rotateY(0deg); transition: transform 1.65s var(--ease-in-out); z-index: 3; }
 .book.is-opening .book-cover { transform: rotateY(-178deg); }
 @media (max-width: 600px) { .book, .book.is-opening, .book.is-pages-open, .book.is-zooming { width: 80vw; max-width: 320px; transform: none; }.book.is-opening .book-cover { transform: rotateY(-178deg); } }
