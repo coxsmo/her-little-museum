@@ -202,10 +202,10 @@ img { display: block; max-width: 100%; }
 
 
 /* ============================================================
-   NATURAL LILY BLOOM — final animation override
-   The old animation moved each SVG path from its own bounding box,
-   which made the flower feel like six PowerPoint objects appearing
-   one after another. These groups now unfold from one shared center.
+   NATURAL LILY GROWTH — v5
+   Goal: look like one plant emerging and blooming, not layered
+   PowerPoint objects. The stem is the anchor; petals reveal from
+   the flower joint with a tiny organic curl/settle.
    ============================================================ */
 
 .book-life {
@@ -214,156 +214,203 @@ img { display: block; max-width: 100%; }
   isolation: isolate;
 }
 
-.life-plant {
+.life-plant,
+.life-plant svg {
   overflow: visible;
 }
 
+/* Shared flower joint: every petal is born from this point. */
 .plant-petals {
   transform-box: view-box;
   transform-origin: 113px 87px;
+  will-change: transform;
 }
 
-/* All petals start folded into the bud/flower center. */
 .plant-petal {
   transform-box: view-box;
   transform-origin: 113px 87px;
   opacity: 0;
-  transform: translate(0, 2px) scale(.035) rotate(0deg);
+  transform: translate(0, 4px) scale(.035);
   will-change: transform, opacity;
 }
 
 .plant-petal path {
   transform: none !important;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-/* Cancel older nth-child animations. */
-.book-life.is-growing .plant-petals .plant-petal,
-.book-life.is-reversing .plant-petals .plant-petal {
-  animation: none !important;
-}
-
-/* One continuous bloom with a tiny stagger and soft overshoot. */
-.book-life.is-growing .plant-petal {
-  animation: petalBloom 1.35s cubic-bezier(.2,.82,.25,1) both !important;
-}
-
-.book-life.is-growing .petal-1 { animation-delay: 3.72s !important; }
-.book-life.is-growing .petal-2 { animation-delay: 3.80s !important; }
-.book-life.is-growing .petal-3 { animation-delay: 3.88s !important; }
-.book-life.is-growing .petal-4 { animation-delay: 3.98s !important; }
-.book-life.is-growing .petal-5 { animation-delay: 4.08s !important; }
-.book-life.is-growing .petal-6 { animation-delay: 4.18s !important; }
-
-@keyframes petalBloom {
-  0% {
-    opacity: 0;
-    transform: translate(0, 2px) scale(.035) rotate(0deg);
-  }
-  35% {
-    opacity: .72;
-    transform: translate(0, 1px) scale(.72) rotate(var(--open-rotation, 0deg));
-  }
-  62% {
-    opacity: .96;
-    transform: translate(0, 0) scale(1.035) rotate(calc(var(--open-rotation, 0deg) * .35));
-  }
-  82% {
-    opacity: 1;
-    transform: translate(0, 0) scale(.985) rotate(calc(var(--open-rotation, 0deg) * -.12));
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1) rotate(0deg);
-  }
-}
-
-/* Slight individual differences prevent a mechanical-looking bloom. */
-.petal-1 { --open-rotation: -2deg; }
-.petal-2 { --open-rotation: -1deg; }
-.petal-3 { --open-rotation: 2deg; }
-.petal-4 { --open-rotation: 3deg; }
-.petal-5 { --open-rotation: -2deg; }
-.petal-6 { --open-rotation: -3deg; }
-
-/* After opening, the whole bloom barely moves, like a real flower. */
-.book-life.is-growing .plant-petals {
-  animation: lilySettle 4.8s ease-in-out 5.05s infinite alternate !important;
+  transform-box: view-box;
   transform-origin: 113px 87px;
 }
 
-@keyframes lilySettle {
-  0%   { transform: rotate(-.35deg) translateY(0); }
-  50%  { transform: rotate(.28deg) translateY(-1px); }
-  100% { transform: rotate(-.18deg) translateY(0); }
+/* ------------------------------------------------------------
+   PLANT GROWTH
+   Stem and leaves finish first. The bud swells naturally.
+   ------------------------------------------------------------ */
+.book-life.is-growing .plant-stem {
+  animation: stemGrow 2.35s cubic-bezier(.25,.72,.2,1) .35s both !important;
 }
 
-/* Center details fade in after the petals have naturally unfolded. */
+.book-life.is-growing .plant-leaf-left {
+  animation: leafGrowLeft 1.15s cubic-bezier(.2,.78,.25,1) 1.72s both !important;
+}
+
+.book-life.is-growing .plant-leaf-right {
+  animation: leafGrowRight 1.15s cubic-bezier(.2,.78,.25,1) 1.92s both !important;
+}
+
+.book-life.is-growing .plant-bud {
+  animation: budGrow 1.05s cubic-bezier(.18,.82,.25,1) 2.55s both !important;
+}
+
+@keyframes stemGrow {
+  0%   { opacity: 0; transform: translateY(9px) scaleY(.05); transform-origin: 113px 127px; }
+  65%  { opacity: .92; transform: translateY(1px) scaleY(1.015); }
+  100% { opacity: 1; transform: translateY(0) scaleY(1); }
+}
+
+@keyframes leafGrowLeft {
+  0%   { opacity: 0; transform: scale(.08) rotate(-18deg); transform-origin: 108px 94px; }
+  70%  { opacity: 1; transform: scale(1.04) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes leafGrowRight {
+  0%   { opacity: 0; transform: scale(.08) rotate(18deg); transform-origin: 115px 94px; }
+  70%  { opacity: 1; transform: scale(1.04) rotate(-2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes budGrow {
+  0%   { opacity: 0; transform: translateY(3px) scale(.18); transform-origin: 113px 87px; }
+  60%  { opacity: 1; transform: translateY(0) scale(1.06); }
+  82%  { transform: translateY(0) scale(.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ------------------------------------------------------------
+   FLOWER BLOOM
+   Not a collection of objects appearing. Each petal starts at
+   the stem joint, expands along its own natural direction, then
+   settles. Tiny stagger = physical unfolding, not slideshow.
+   ------------------------------------------------------------ */
+.book-life.is-growing .plant-petal {
+  animation: realPetalUnfurl 1.55s cubic-bezier(.17,.78,.2,1) both !important;
+}
+
+.book-life.is-growing .petal-1 { animation-delay: 3.62s !important; }
+.book-life.is-growing .petal-2 { animation-delay: 3.74s !important; }
+.book-life.is-growing .petal-3 { animation-delay: 3.86s !important; }
+.book-life.is-growing .petal-4 { animation-delay: 3.98s !important; }
+.book-life.is-growing .petal-5 { animation-delay: 4.10s !important; }
+.book-life.is-growing .petal-6 { animation-delay: 4.22s !important; }
+
+@keyframes realPetalUnfurl {
+  0% {
+    opacity: 0;
+    transform: translate(0, 4px) scale(.035);
+  }
+  20% {
+    opacity: .18;
+    transform: translate(0, 3px) scale(.16);
+  }
+  48% {
+    opacity: .72;
+    transform: translate(0, 1.5px) scale(.62);
+  }
+  72% {
+    opacity: .98;
+    transform: translate(0, .2px) scale(1.045);
+  }
+  88% {
+    opacity: 1;
+    transform: translate(0, 0) scale(.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* The flower itself settles as one connected organism. */
+.book-life.is-growing .plant-petals {
+  animation: flowerSettle 6s ease-in-out 5.45s infinite alternate !important;
+  transform-origin: 113px 87px;
+}
+
+@keyframes flowerSettle {
+  0%   { transform: rotate(-.12deg) translateY(0); }
+  45%  { transform: rotate(.16deg) translateY(-.25px); }
+  100% { transform: rotate(-.08deg) translateY(0); }
+}
+
+/* Center details emerge only after the petals have opened. */
 .book-life.is-growing .plant-stamens {
   opacity: 0;
-  animation: detailFade .8s ease-out 4.72s both !important;
+  animation: centerAppear .7s ease-out 5.08s both !important;
 }
+
 .book-life.is-growing .plant-center {
   opacity: 0;
-  animation: detailFade .8s ease-out 4.82s both !important;
+  animation: centerAppear .7s ease-out 5.16s both !important;
 }
 
-@keyframes detailFade {
-  from { opacity: 0; transform: scale(.82); }
-  to   { opacity: 1; transform: scale(1); }
+@keyframes centerAppear {
+  0%   { opacity: 0; transform: scale(.88); }
+  70%  { opacity: 1; transform: scale(1.015); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
-/* Reverse as one flower instead of six disconnected pops. */
+/* ------------------------------------------------------------
+   REVERSE BLOOM
+   The flower closes into the stem joint, then the existing book
+   transition can proceed independently.
+   ------------------------------------------------------------ */
+.book-life.is-reversing .plant-petals {
+  animation: none !important;
+}
+
 .book-life.is-reversing .plant-petal {
   opacity: 1;
-  animation: petalBloomBack .72s cubic-bezier(.55,.05,.7,.2) both !important;
+  animation: realPetalFold 1.0s cubic-bezier(.55,.08,.7,.2) both !important;
 }
+
 .book-life.is-reversing .petal-6 { animation-delay: 0s !important; }
-.book-life.is-reversing .petal-5 { animation-delay: .06s !important; }
-.book-life.is-reversing .petal-4 { animation-delay: .12s !important; }
-.book-life.is-reversing .petal-3 { animation-delay: .18s !important; }
-.book-life.is-reversing .petal-2 { animation-delay: .24s !important; }
-.book-life.is-reversing .petal-1 { animation-delay: .30s !important; }
+.book-life.is-reversing .petal-5 { animation-delay: .08s !important; }
+.book-life.is-reversing .petal-4 { animation-delay: .16s !important; }
+.book-life.is-reversing .petal-3 { animation-delay: .24s !important; }
+.book-life.is-reversing .petal-2 { animation-delay: .32s !important; }
+.book-life.is-reversing .petal-1 { animation-delay: .40s !important; }
 
-@keyframes petalBloomBack {
-  from {
+@keyframes realPetalFold {
+  0% {
     opacity: 1;
-    transform: translate(0, 0) scale(1) rotate(0deg);
+    transform: translate(0, 0) scale(1);
   }
-  55% {
-    opacity: .65;
-    transform: translate(0, 1px) scale(.72) rotate(var(--open-rotation, 0deg));
+  32% {
+    opacity: 1;
+    transform: translate(0, .5px) scale(.82);
   }
-  to {
+  68% {
+    opacity: .72;
+    transform: translate(0, 2px) scale(.34);
+  }
+  100% {
     opacity: 0;
-    transform: translate(0, 2px) scale(.035) rotate(0deg);
+    transform: translate(0, 4px) scale(.035);
   }
 }
 
-/* Make the stem, leaves and bud connect more smoothly to the bloom. */
-.book-life.is-growing .plant-stem {
-  animation-duration: 2.15s !important;
-  animation-delay: .40s !important;
-}
-.book-life.is-growing .plant-leaf-left {
-  animation-duration: .95s !important;
-  animation-delay: 1.78s !important;
-}
-.book-life.is-growing .plant-leaf-right {
-  animation-duration: .95s !important;
-  animation-delay: 2.00s !important;
-}
-.book-life.is-growing .plant-bud {
-  animation-duration: 1.0s !important;
-  animation-delay: 2.55s !important;
+/* Never let the lily participate in page/card transitions. */
+.book-life .plant-petals,
+.book-life .plant-petal,
+.book-life .plant-stamens,
+.book-life .plant-center {
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .book-life.is-growing .plant-petals,
-  .book-life.is-growing .plant-petal,
-  .book-life.is-growing .plant-stamens,
-  .book-life.is-growing .plant-center {
+  .book-life .plant-petals,
+  .book-life .plant-petal,
+  .book-life .plant-stamens,
+  .book-life .plant-center {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
