@@ -42,6 +42,7 @@ const petalField = $("#petal-field");
 const viewer = $("#viewer");
 let currentArtwork = 0;
 let toastTimer;
+let openingInProgress = false;
 
 /* Render the museum exhibit cards from the single gallery list above. */
 function renderGallery() {
@@ -99,9 +100,16 @@ function createPetals(amount = 24) {
 }
 
 function openMuseum() {
+  if (openingInProgress || !openingStage || openingStage.classList.contains("is-hidden")) return;
+  openingInProgress = true;
+  book.setAttribute("aria-label", "Opening book");
+  $("#open-book")?.setAttribute("disabled", "true");
   book.classList.add("is-opening");
-  openingStage.classList.add("is-leaving");
   createPetals(32);
+  window.setTimeout(() => {
+    book.classList.add("is-zooming");
+    openingStage.classList.add("is-leaving");
+  }, 2100);
   window.setTimeout(() => {
     openingStage.classList.add("is-hidden");
     museumApp.classList.remove("is-hidden");
@@ -109,7 +117,7 @@ function openMuseum() {
     window.scrollTo({ top: 0, behavior: "instant" });
     observeReveals();
     window.requestAnimationFrame(() => museumApp.classList.remove("is-entering"));
-  }, 1250);
+  }, 3900);
 }
 
 function closeMuseum() {
@@ -117,12 +125,16 @@ function closeMuseum() {
   openingStage.classList.remove("is-hidden");
   openingStage.classList.remove("is-leaving");
   book.classList.remove("is-opening");
+  book.classList.remove("is-zooming");
   book.setAttribute("aria-label", "Closed book");
+  $("#open-book")?.removeAttribute("disabled");
+  openingInProgress = false;
   window.scrollTo({ top: 0, behavior: "instant" });
   createPetals(20);
 }
 
 $("#open-book")?.addEventListener("click", openMuseum);
+book?.addEventListener("click", openMuseum);
 $("#close-book")?.addEventListener("click", closeMuseum);
 
 /* Mobile menu */
