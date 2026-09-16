@@ -40,6 +40,7 @@ const museumApp = $("#museum-app");
 const book = $("#book");
 const petalField = $("#petal-field");
 const viewer = $("#viewer");
+const bookLife = $("#book-life");
 let currentArtwork = 0;
 let toastTimer;
 let openingInProgress = false;
@@ -107,29 +108,43 @@ function openMuseum() {
   book.classList.add("is-opening");
   createPetals(32);
   window.setTimeout(() => {
-    openingStage.classList.add("is-leaving");
+    bookLife?.classList.add("is-growing");
   }, 1750);
+  window.setTimeout(() => {
+    openingStage.classList.add("is-leaving");
+  }, 6100);
   window.setTimeout(() => {
     openingStage.classList.add("is-hidden");
     museumApp.classList.remove("is-hidden");
+    museumApp.classList.add("is-entering");
     window.scrollTo({ top: 0, behavior: "instant" });
     observeReveals();
-  }, 2250);
+    window.requestAnimationFrame(() => museumApp.classList.remove("is-entering"));
+  }, 6700);
 }
 
 function closeMuseum() {
-  museumApp.classList.add("is-hidden");
-  openingStage.classList.remove("is-hidden");
-  openingStage.classList.remove("is-leaving");
-  book.classList.remove("is-opening");
-  book.classList.remove("is-pages-open");
-  book.classList.remove("is-zooming");
-  book.classList.remove("is-zooming");
-  book.setAttribute("aria-label", "Closed book");
-  $("#open-book")?.removeAttribute("disabled");
-  openingInProgress = false;
-  window.scrollTo({ top: 0, behavior: "instant" });
-  createPetals(20);
+  museumApp.classList.add("is-returning");
+  window.setTimeout(() => {
+    museumApp.classList.add("is-hidden");
+    museumApp.classList.remove("is-returning");
+    openingStage.classList.remove("is-hidden");
+    openingStage.classList.remove("is-leaving");
+    book.classList.add("is-opening");
+    bookLife?.classList.remove("is-growing");
+    bookLife?.classList.add("is-reversing");
+    window.setTimeout(() => {
+      bookLife?.classList.remove("is-reversing");
+      book.classList.remove("is-opening");
+      book.classList.remove("is-pages-open");
+      book.classList.remove("is-zooming");
+      book.setAttribute("aria-label", "Closed book");
+      $("#open-book")?.removeAttribute("disabled");
+      openingInProgress = false;
+      window.scrollTo({ top: 0, behavior: "instant" });
+      createPetals(20);
+    }, 3600);
+  }, 620);
 }
 
 $("#open-book")?.addEventListener("click", openMuseum);
